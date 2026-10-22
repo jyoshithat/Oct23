@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A personal birthday surprise website crafted with love." />
+  <title>Happy 24th Birthday, Anna! 🐣</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Background Ambient Glow Orbs -->
+  <div class="ambient-glow orb-1" aria-hidden="true"></div>
+  <div class="ambient-glow orb-2" aria-hidden="true"></div>
+  <div class="ambient-glow orb-3" aria-hidden="true"></div>
+
+  <!-- Global Lock / Warning Alert Toast -->
+  <div class="lock-alert-toast" id="lock-alert-toast" role="alert" aria-live="assertive">
+    <span class="toast-icon" id="toast-icon">🔒</span>
+    <span class="toast-msg" id="toast-msg">Please follow the sequence</span>
+  </div>
+
+  <!-- =====================================================
+       SECTION 1 — OPENING SCREEN
+  ====================================================== -->
+  <section id="section-opening" class="section active" aria-label="Opening screen">
+
+    <!-- Floating Particles Container -->
+    <div class="particles-container" id="opening-particles" aria-hidden="true"></div>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="opening-hearts" aria-hidden="true"></div>
+
+    <div class="opening-content glass-panel">
+
+      <!-- Top greeting line -->
+      <p class="opening-tagline fade-in-up" id="opening-tagline">A special day for someone special 💝</p>
+
+      <!-- Big animated "24" -->
+      <div class="big-number-wrapper fade-in-up delay-1" aria-label="24">
+        <span class="big-number" id="big-number">24</span>
+        <div class="number-ring ring-1" aria-hidden="true"></div>
+        <div class="number-ring ring-2" aria-hidden="true"></div>
+      </div>
+
+      <!-- Second greeting -->
+      <p class="opening-sub fade-in-up delay-2">24 looks good on you! 💙</p>
+
+      <!-- Main birthday heading -->
+      <h1 class="birthday-heading fade-in-up delay-3" id="birthday-heading">
+        Happy 24th Birthday, Anna! 🐣
+      </h1>
+
+      <!-- Divider -->
+      <div class="divider fade-in-up delay-4" aria-hidden="true">
+        <span class="divider-dot"></span>
+        <span class="divider-line"></span>
+        <span class="divider-heart">♡</span>
+        <span class="divider-line"></span>
+        <span class="divider-dot"></span>
+      </div>
+
+      <!-- Teaser text -->
+      <p class="opening-teaser fade-in-up delay-5">A little surprise for you...</p>
+
+      <!-- CTA Button -->
+      <button class="open-btn fade-in-up delay-6" id="open-surprise-btn" aria-label="Open your birthday surprise"
+        type="button">
+        <span class="btn-icon" aria-hidden="true">🎁</span>
+        <span>Open Your Surprise ♡</span>
+      </button>
+
+    </div>
+
+    <!-- Tiny stars decoration -->
+    <div class="stars-layer" aria-hidden="true" id="opening-stars"></div>
+
+  </section>
+
+
+  <!-- =====================================================
+       SECTION 2 — PHOTO SLIDESHOW
+  ====================================================== -->
+  <section id="section-photos" class="section" aria-label="Birthday photo memories">
+
+    <div class="particles-container" id="photo-particles" aria-hidden="true"></div>
+    <div class="floating-hearts small" id="photo-hearts" aria-hidden="true"></div>
+
+    <div class="photos-container glass-panel">
+      <div class="photos-header">
+        <p class="section-caption">Moments captured in time ✨</p>
+        <h2 class="section-title" id="photos-title">A Journey Through Your Best Moments</h2>
+      </div>
+
+      <!-- Slideshow Wrapper -->
+      <div class="slideshow-wrapper" role="region" aria-label="Photo slideshow">
+
+        <!-- Main Slide Display -->
+        <div class="slideshow-stage" id="slideshow-stage">
+          <!-- Slides are injected by JS -->
+          <div class="slide-placeholder" aria-hidden="true">
+            <div class="slide-placeholder-inner"></div>
+          </div>
+        </div>
+
+        <!-- Navigation & Counter bar -->
+        <div class="slideshow-nav" role="group" aria-label="Slideshow controls">
+          <button class="nav-btn prev-btn" id="prev-btn" aria-label="Previous photo" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          <div class="slide-counter" id="slide-counter" aria-live="polite">1 / 23</div>
+
+          <!-- Dot indicators -->
+          <div class="slide-dots" id="slide-dots" role="tablist" aria-label="Photo indicators"></div>
+
+          <button class="nav-btn next-btn" id="next-btn" aria-label="Next photo" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Section Navigation Footer -->
+      <div class="section-footer">
+        <button class="back-btn" id="photo-back-btn" type="button" aria-label="Back to opening">
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" style="transform: rotate(180deg);">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+          Back
+        </button>
+
+        <button class="continue-btn locked" id="to-video-btn" type="button" aria-label="Continue to video message">
+          <span class="btn-lock-icon" aria-hidden="true">🔒</span>
+          <span id="to-video-text">View all photos to continue (1/23)</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       SECTION 3 — VIDEO MESSAGE
+  ====================================================== -->
+  <section id="section-video" class="section" aria-label="Personal video message">
+
+    <div class="particles-container" id="video-particles" aria-hidden="true"></div>
+    <div class="floating-hearts small" id="video-hearts" aria-hidden="true"></div>
+
+    <div class="video-content glass-panel">
+
+      <div class="video-header">
+        <p class="section-caption">From the heart 💌</p>
+        <h2 class="section-title video-title">A special video message from me to you...</h2>
+      </div>
+
+      <!-- Video Frame -->
+      <div class="video-frame-wrapper">
+        <div class="video-frame" id="video-frame">
+
+          <!-- Decorative corners -->
+          <span class="frame-corner tl" aria-hidden="true"></span>
+          <span class="frame-corner tr" aria-hidden="true"></span>
+          <span class="frame-corner bl" aria-hidden="true"></span>
+          <span class="frame-corner br" aria-hidden="true"></span>
+
+          <!-- Actual video element -->
+          <video id="birthday-video" preload="metadata" playsinline aria-label="Personal birthday video message">
+            <source src="assets/video/birthday-message.mp4" type="video/mp4" />
+            <p>Your browser does not support HTML5 video. Please update your browser.</p>
+          </video>
+
+          <!-- Placeholder when video is loading or awaiting play -->
+          <div class="video-placeholder" id="video-placeholder" aria-hidden="true">
+            <div class="video-placeholder-badge">Personal Message 💌</div>
+            <span class="video-placeholder-icon">🎬</span>
+            <span class="video-placeholder-text">A special message recorded just for you</span>
+          </div>
+
+          <!-- Custom play overlay -->
+          <button class="play-overlay" id="play-overlay" aria-label="Play birthday video" type="button">
+            <div class="play-circle">
+              <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />
+              </svg>
+            </div>
+            <span class="play-label">Play Video</span>
+          </button>
+
+          <!-- Toast shown when video completes before redirect -->
+          <div class="video-ended-toast" id="video-ended-toast" aria-live="polite">
+            <span>✨ That was so special... Revealing your final memory 💖</span>
+          </div>
+
+        </div>
+
+        <!-- Missing Video Fallback / Demo Simulation Banner -->
+        <div class="video-missing-banner" id="video-missing-banner" style="display: none;">
+          <p>⚠️ No video file found in <code>assets/video/birthday-message.mp4</code></p>
+          <button type="button" class="demo-simulate-btn" id="demo-simulate-btn">
+            ▶ Simulate Video Completion (Demo Mode)
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Section Navigation Footer -->
+      <div class="section-footer">
+        <button class="back-btn" id="video-back-btn" type="button" aria-label="Back to photos">
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" style="transform: rotate(180deg);">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+          Back
+        </button>
+
+        <!-- STRICTLY LOCKED UNTIL VIDEO COMPLETES -->
+        <button class="continue-btn locked" id="to-memory-btn" type="button" aria-label="See the final memory">
+          <span class="btn-lock-icon" aria-hidden="true">🔒</span>
+          <span id="to-memory-text">Watch full video to unlock (0%)</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       SECTION 4 — FINAL MEMORY PHOTO
+  ====================================================== -->
+  <section id="section-memory" class="section" aria-label="Special memory">
+
+    <div class="particles-container" id="memory-particles" aria-hidden="true"></div>
+    <div class="floating-hearts small" id="memory-hearts" aria-hidden="true"></div>
+
+    <div class="memory-content glass-panel">
+
+      <p class="section-caption glow">One more thing... 💝</p>
+
+      <div class="memory-card-row">
+        <!-- Polaroid memory card -->
+        <div class="polaroid-card" id="polaroid-card" aria-label="Special memory photo">
+          <div class="polaroid-photo-wrap">
+            <img src="assets/photos/memory.jpg" alt="A special memory" class="polaroid-photo" id="memory-photo"
+              loading="lazy" />
+          </div>
+          <!-- Handwritten caption under photo inside polaroid -->
+          <p class="polaroid-caption" id="memory-inline-caption">Our favourite memory 💙</p>
+        </div>
+
+        <!-- Emotional message side -->
+        <div class="memory-text-wrap">
+          <div class="memory-message" id="memory-message">
+            <p>
+              Some memories may become old photographs, but they will always remain special.
+              No matter how much time passes, I'm grateful to have you as my brother.
+            </p>
+            <p class="memory-highlight">Happy 24th Birthday, Anna! ♡</p>
+          </div>
+          <p class="made-with-love">Made with all my love ♡</p>
+        </div>
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="section-footer">
+        <button class="back-btn" id="memory-back-btn" type="button" aria-label="Back to video">
+          <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" style="transform: rotate(180deg);">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+          Back
+        </button>
+
+        <button class="replay-btn" id="replay-btn" type="button"
+          aria-label="Replay the birthday surprise from the beginning">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="replay-icon">
+            <polyline points="1 4 1 10 7 10" />
+            <path d="M3.51 15a9 9 0 1 0 .49-4.95" />
+          </svg>
+          Replay From Start ♡
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       GLOBAL OVERLAY — Section Transition
+  ====================================================== -->
+  <div class="transition-overlay" id="transition-overlay" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
